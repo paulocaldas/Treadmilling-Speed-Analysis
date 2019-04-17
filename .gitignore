@@ -1,0 +1,5 @@
+.ipynb_checkpoints/
+track-analysis/.ipynb_checkpoints/
+*.pyc
+*.class
+*.pdf
