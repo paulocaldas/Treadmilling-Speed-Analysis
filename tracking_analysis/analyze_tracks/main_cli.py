@@ -1,7 +1,7 @@
 import os
 import argparse
 from matplotlib import pyplot as plt
-from . import read, msd, velocity, utils
+from . import process
 
 description = \
 """
@@ -11,40 +11,28 @@ Mean-square-displacement and velocity auto-correlation analyzes of growth and sh
 def get_args():
     parser = argparse.ArgumentParser(description=description)
     
-    parser.add_argument('track_file', type=str, nargs='+', help="Trackmate xml-track file(s)")
+    parser.add_argument('track_file', type=str, nargs="+", help="Trackmate xml-track file or folder containing several")
+    parser.add_argument('--clip', type=float, default=0.5, help="Use only clip fraction for fitting (default 0.5)")
+    parser.add_argument('--plot_every', type=int, default=20, help="Plot every p th single track in output plot (default: 20)")
 
     return parser.parse_args()
 
-def process(tm_xml_fn):
-    print("## Reading {}...".format(tm_xml_fn))
+def run(track_file, clip, plot_every):
+    if os.path.isdir(track_file):
+        process.analyze_tracks_batch(track_file, clip=clip, plot_every=plot_every)
 
-    # Read
-    tracks, frame_interval, time_units, space_units = read.tm_xml_tracks(tm_xml_fn)
-
-    print(' - Physical units: {}, {}'.format(space_units, time_units))
-    print(' - Number of tracks: {}'.format(len(tracks.TRACK_ID.unique())))
-    print(' - Frame interval: {}'.format(frame_interval))
-
-    ## msd single
-    vel_dist, all_msd_curves = msd.single_track_analysis(tracks, frame_interval)
-
-    ## msd all
-    msd.msd_velocity_analysis(tracks, frame_interval, clip = 0.5)
-
-    ## velcoity all
-    velocity.compute_directionality(tracks, frame_interval)
-
+    elif os.path.isfile(track_file):
+        process.analyze_tracks(track_file, clip=clip, plot_every=plot_every)
 
 def main():
     args = get_args()
-    tm_xml_files = args.track_file
 
-    for tm_xml_fn in tm_xml_files:
+    for tm_xml_fn in args.track_file:
         # check if file exits
-        assert os.path.exists(tm_xml_fn), "File '{}' does not exists. Skipping...".format(tm_xml_fn)
+        assert os.path.exists(tm_xml_fn), "File / folder '{}' does not exists. Skipping...".format(tm_xml_fn)
 
         # process it
-        process(tm_xml_fn)
+        run(tm_xml_fn, args.clip, args.plot_every)
 
     plt.show()
 

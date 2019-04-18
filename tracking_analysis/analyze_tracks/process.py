@@ -63,7 +63,7 @@ class HiddenPrints:
         sys.stdout = self._original_stdout
 
 # running in batch
-def analyze_tracks_batch(files_dir, clip = 0.5):
+def analyze_tracks_batch(files_dir, clip = 0.5, plot_every = 20):
     
     data_path = os.path.join(files_dir,'*Tracks.xml')
     files = glob.glob(data_path)
@@ -73,9 +73,8 @@ def analyze_tracks_batch(files_dir, clip = 0.5):
     else:
         for i, xml_file in tqdm(enumerate(files), desc='Progress ...', total=len(files)):
             print('Processing ' + os.path.basename(xml_file))
-            try:
-                
-                with HiddenPrints(): analyze_tracks(xml_file) #this blocks print statments while running the function
+            try: 
+                with HiddenPrints(): analyze_tracks(xml_file, clip=clip, plot_every=plot_every) #this blocks print statments while running the function
             except:
                 print ("\t Error: File '{}' could not be processed... skipping")
                 continue
