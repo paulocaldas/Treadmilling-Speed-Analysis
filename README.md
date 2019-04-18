@@ -1,2 +1,2 @@
 # Treadmilling-Speed-Analysis
-automated analysis of protein dynamics
+Automated image analysis protocol to quantify the velocities of dynamic protein filaments
