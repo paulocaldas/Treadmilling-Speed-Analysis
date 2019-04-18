@@ -1,7 +1,7 @@
 import os
 import argparse
 from matplotlib import pyplot as plt
-from analyze_tracks import read, msd, velocity, utils
+from . import read, msd, velocity, utils
 
 description = \
 """
@@ -29,7 +29,7 @@ def process(tm_xml_fn):
     vel_dist, all_msd_curves = msd.single_track_analysis(tracks, frame_interval)
 
     ## msd all
-    msd.msd_velocity_analysis(tracks, frame_interval, clip = 0.5, units = 'µm/s')
+    msd.msd_velocity_analysis(tracks, frame_interval, clip = 0.5)
 
     ## velcoity all
     velocity.compute_directionality(tracks, frame_interval)
@@ -49,5 +49,5 @@ def main():
     plt.show()
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
