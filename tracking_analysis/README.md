@@ -2,10 +2,15 @@
 Analyze growth and shrinkage tracks by means of
 * MSD
 * Velocity auto-correlation
+
 and export results as Excel sheets and plots as pdf
 
 ## Input
-TrackMate track xml file
+* TrackMate track xml file
+
+or
+
+* Folder containing TrackMate track xml files
 
 ## Output
 * MSD analysis
@@ -13,7 +18,7 @@ TrackMate track xml file
 
 ## Installation
 1. Clone the git repository 
-2. Open (Anaconda prompt) and change directory to tracking_analysis
+2. Open a (Anaconda) prompt and change directory to tracking_analysis
 
     `cd tracking_analysis`
 3. pip install
@@ -26,10 +31,10 @@ TrackMate track xml file
 You can run the tracking analysis using IPython notebook or from the command line interface
 
 #### Command line interace (CLI)
-1. Open (Anaconda prompt) and change directory to tracking_analysis
+1. Open a (Anaconda) prompt and change directory to tracking_analysis
 2. Run the python command line interface on the bundled example file with clip of 0.25
 
-    `analyze_tracks_cli analyze_tracks_cli example\example_growth_Tracks.xml --clip 0.25`
+    `analyze_tracks_cli example\example_growth_Tracks.xml --clip 0.25`
 
 
 #### IPython notebook
