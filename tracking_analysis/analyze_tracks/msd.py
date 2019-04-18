@@ -6,9 +6,7 @@ from functools import partial
 from collections import defaultdict
 from scipy.optimize import curve_fit
 from matplotlib import pyplot as plt
-# extra packages for a progress bar
-from ipywidgets import FloatProgress
-from IPython.display import display
+
 
 def msd_per_track(trajectory, coords):
     """Compute MSD for one trajectory """
