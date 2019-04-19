@@ -182,10 +182,4 @@ def msd_velocity_analysis(table_tracks, frame_interval, clip = 0.5, track_id="TR
     fit_data = pd.DataFrame([t_axis, msds_means, msds_std, t_values, parabola(t_values, *parameters)]).T
     fit_data.columns = ['time','msd_mean','msd_std','x_fit','y_fit']
     
-    #print relevant results
-    #print('Velocity = ', '%0.3f' % (V*1000), 'nm/s')
-    #print('error = ', '%0.3f' % (V_std*1000))
-    #print('\nDiffusion const = ', '%0.3f' % (D*1000), 'nm^2/s')
-    #print('error = ', '%0.3f' % (D_std*1000))
-    
     return V, D, fit_data
