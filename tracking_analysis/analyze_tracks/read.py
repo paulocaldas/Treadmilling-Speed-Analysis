@@ -3,7 +3,7 @@ from xml.etree import cElementTree as ET
 
 def tm_xml_tracks(fn):
     """Reads tracks from trackmate xml track file and returns a DataFrame 
-    plus other additional data info (credits: Paulo Caldas) """
+    plus other additional data info """
     
     tracks = ET.parse(fn)
     frame_interval = float(tracks.getroot().attrib["frameInterval"])
