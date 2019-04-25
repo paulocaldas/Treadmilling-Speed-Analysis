@@ -62,7 +62,7 @@ def single_track_analysis(table_tracks, frame_interval, plot_every=10, track_id=
     
     # for each curve (taus, msd values) fits the velocity with a quadratic equation
     
-    clip = 0.8
+    clip = 0.5
     
     for i, (taus, msd) in enumerate(all_msd_curves):                    
         
