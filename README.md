@@ -6,7 +6,9 @@ An automated image analysis protocol that allows to quantify the velocities of t
 
 (a) Construction of differential image stacks to create fluorescent speckles (ImageJ Script) <br>
  ***(short description how the code works)*** <br>
+ 
 (b) Tracking the motion of the fluorescent speckles using TrackMate (ImageJ script) <br>
  ***(short description how the code works)*** <br>
+ 
 (c) Analyze trajectories to quantify velocity and directionality of filaments (Python notebook). <br>
  ***(short description how the code works)*** <br>
