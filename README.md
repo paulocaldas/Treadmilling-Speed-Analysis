@@ -5,8 +5,8 @@ This approach allows to quantify the velocities of thousands of dynamic treadmil
 
 **(A) Construction of differential image stacks to create fluorescent speckles (ImageJ macro)** <br>
 
-**extract_growth_shrink.py**: computes growth and shrinkage speckles for a time-lapse movie <br>
-**extract_growth_shrink.py**: applies the same computation to folder containing multile files <br>
+*extract_growth_shrink.py**: computes growth and shrinkage speckles for a time-lapse movie <br>
+*extract_growth_shrink.py**: applies the same computation to folder containing multile files <br>
 
 **(B) Tracking the motion of the fluorescent speckles using TrackMate in Batch (ImageJ macro)** <br>
 
