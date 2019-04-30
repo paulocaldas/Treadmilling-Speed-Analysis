@@ -3,8 +3,8 @@
 #@ String(label="File extensions", value='*.tif; *.tf8') img_extensions
 
 #@ String (visibility=MESSAGE, value="Image will be smoothed by a Gaussian filter") msg1
-#@ Float(label="Sigma in time (px)",  value=1.5, stepSize=0.1, min=0) sigma_t
-#@ Float(label="Sigma in space (px)", value=0.5, stepSize=0.1, min=0) sigma_xy
+#@ Float(label="Sigma in time (pixel)",  value=1.5, stepSize=0.1, min=0) sigma_t
+#@ Float(label="Sigma in space (frame)", value=0.5, stepSize=0.1, min=0) sigma_xy
 
 #@ Integer(label="Start Frame", value=0, min=0, persist=False) frame_start
 #@ Integer(label="End Frame ", value=-1, persist=False) frame_end
