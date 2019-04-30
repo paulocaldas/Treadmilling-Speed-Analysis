@@ -7,11 +7,13 @@ To reduce noise and background contribution during the subtraction process, we i
 
 Two ImageJ macros (Jython) are available:
 
-** extract_growth_shrink.py ** 
+**extract_growth_shrink.py**<br>
+input: time-lapse movie open in imageJ. An interactive window allows to correct/modify physical units and the box filter.
+output: two new movies corresponding to growth (green) and shrinkage (red) overlapped with the raw data.
+channels can be slipted and used for posterior analsysis
 
-creates growth and shrink speckles for a given time-lapse open in imageJ. The output in a new time-lpase containing the raw data overlapped with growth (green) and shrinkage (red) speckles. 
-
-extract_growth_shrink_batch.py
+**extract_growth_shrink_batch.py**
+input: select a folder containing several time-lapse movie
 
 
 
