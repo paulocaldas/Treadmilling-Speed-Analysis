@@ -1,6 +1,6 @@
 # Analyze Trajectories from XML files
 
-This folder contains a python notebook **analyze_tracks.ipynb** that uses TrackMate's XML file as input.
+This folder contains a python notebook `analyze_tracks.ipynb` that uses TrackMate's XML file as input.
 Uses the modules inside the folder analyze_tracks to compute: <br>
 
 * Velocities Distribuition Directly from Spot Displacement
@@ -26,7 +26,7 @@ the output is a pdf containg all figs and an excel containing all data to plot e
 2. Open a (Anaconda) prompt and change directory to the tracking_analysis folder:
     `cd path\tracking_analysis`
 3. run pip install to install necessary python modules:
-    " pip install -e . "
+    `pip install -e .`
 4. All requirements to make the code work are automatically resolved
 
 ## Comand line Interface (optional feature)
