@@ -26,12 +26,11 @@ the output is a pdf containg all figs and an excel containing all data to plot e
 2. Set variable `filename` or use example file
 3. Use single or batch processing of entire folder
 
-**clip:** *defines the % of the track lenght to fit the model* <br>
-**plot_every:** *defines the interval for inidivual MSD curves (less curves saves computation time) <br>
-*both parameters are optinal and set to 0.5 and 20, respecively
+**clip:** *defines the % of the track lenght to fit the model and is set to 0.5 by default* <br>
+**plot_every:** *defines the interval for inidivual MSD curves and is set to 20 by default (less curves saves computation time)* <br>
 
 ## Comand line Interface (optional feature)
 1. Open a (Anaconda) prompt and change directory to tracking_analysis
 2. Run the python command line interface. For the bundled example file with clip would be 0.25:
 
-    " analyze_tracks_cli example\example_growth_Tracks.xml --clip 0.25 "
+    `analyze_tracks_cli example\example_growth_Tracks.xml --clip 0.25`
