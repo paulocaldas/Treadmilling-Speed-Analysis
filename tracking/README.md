@@ -1,4 +1,4 @@
-# Tracking Flourescent speckles with TrackMate (ImageJ)
+# Tracking Fluorescent speckles with TrackMate (ImageJ)
 
 In our analysis, we chose to use TrackMate for particle detection and tracking (Tinevez et al. 2016), not only because it is an open-source toolbox available for ImageJ, but also because it provides a user-friendly graphical user interface (GUI) with several features for visualization and data export. In our analysis, on a first apporach we use TrackMate's GUI to identify the best parameters for detecting, tracking and linking the trajectories of fluorescent speckles. After finding the optimal parameters for detection and tracking, they can then be used in a batch processing step to analyze multiple time-lapse movies without using the GUI. Our macro uses the Laplacian detector (LoG) and set of different filters that we found handy in our analysis. They can of course be set to zero if unecessary.
 
