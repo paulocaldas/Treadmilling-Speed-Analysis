@@ -6,7 +6,7 @@ To reduce noise and background contribution during the subtraction process, we i
 # Usage: ImageJ macro
 
 Two ImageJ macros (Jython) are available:
-** extract_growth_shrink.py <br> **
+** extract_growth_shrink.py ** <br> 
 creates growth and shrink speckles for a given time-lapse open in imageJ. The output in a new time-lpase containing the raw data overlapped with growth (green) and shrinkage (red) speckles. 
 
 extract_growth_shrink_batch.py
