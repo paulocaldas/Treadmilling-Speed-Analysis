@@ -13,5 +13,5 @@ Two ImageJ macros (Jython) are available:
 **extract_growth_shrink_batch.py** <br>
 *running the macro opens an interactive window that allows to select a folder containing several time-lapse movies, set the same parameter as before. The previous process is applied to all files in the selected folder in a windowless process. All 'growth' and 'shrink' movies are saved as tif files in the same directory.
 
-**growth_shrink.py and temporal_gradient.py**
+**growth_shrink.py and temporal_gradient.py**<br>
 *contain necessary modules to run the macros above. they should be kept inside the same folder*
