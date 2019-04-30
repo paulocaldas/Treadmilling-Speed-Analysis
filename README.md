@@ -4,6 +4,7 @@
 This approach allows to quantify the velocities of thousands of dynamic treadmilling filaments simultaneously using simple open-source tools, namely ImageJ plugins and home-built pythn scripts. The approach is divided in three distinct steps:
 
 (a) Construction of differential image stacks to create fluorescent speckles (ImageJ macro) <br>
+
 **extract_growth_shrink.py**: computes growth and shrinkage speckles for a time-lapse movie <br>
 **extract_growth_shrink.py**: applies the same computation to folder containing multile files <br>
 
