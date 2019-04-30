@@ -7,19 +7,17 @@ To reduce noise and background contribution during the subtraction process and i
 
 Two ImageJ macros (Jython) are available:
 
-**extract_growth_shrink.py**<br>
-input: time-lapse movie open in imageJ. An interactive window allows to correct/modify physical units and set the box filter.
-output: two new movies corresponding to growth (green) and shrinkage (red) overlapped with the raw data.
-channels can be slipted and used for posterior analsysis
+**extract_growth_shrink.py** <br>
+*input: time-lapse movie open in imageJ. An interactive window allows to correct/modify physical units and set the box filter. <br>
+*output: two new movies corresponding to growth (green) and shrinkage (red) overlapped with the raw data. <br>
+*channels can be slipted and used for posterior analsysis
 
-**extract_growth_shrink_batch.py**
-input: an interactive window allows to select a folder containing several time-lapse movie, set correct/modify physical units and set the box filter.
+**extract_growth_shrink_batch.py** <br>
+input: an interactive window allows to select a folder containing several time-lapse movie, set correct/modify physical units and set the box filter. <br>
 output: runs the previous analysis to all files in a windowless process and saves all 'growth' and 'shrink' movies as tif files.
 
-extract_growth_shrink.py	intial commit for growth/shrinkage extraction fiji scripts	13 days ago
-extract_growth_shrink_batch.py	intial commit for growth/shrinkage extraction fiji scripts	13 days ago
-
-growth_shrink.py
+The remaining files contain necessary modules to run the macros above and should be kept inside the same folder.
+*growth_shrink.py*
 temporal_gradient.py	
 
 You can run the tracking analysis using IPython notebook or from the command line interface
