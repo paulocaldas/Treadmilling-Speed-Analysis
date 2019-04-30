@@ -1,45 +1,38 @@
-# Tracking post-analysis
-Analyze growth and shrinkage tracks by means of
-* MSD
-* Velocity auto-correlation
+# Analyze Trajectories from XML files
 
-and export results as Excel sheets and plots as pdf
+This folder contains a python notebook **analyze_tracks.ipynb** that uses TrackMate's XML file as input.
+Uses the modules inside the folder analyze_tracks to compute: <br>
 
-## Input
-* TrackMate track xml file
+* Velocities Distribuition Directly from Spot Displacement
+* Velocitiy distribution from fitting MSD curves individually
+* Average velocity from fitting a mean MSD curve
+* Directionality from velocity auto-correlation analysis
 
-or
+*for a single file or in batch. <br>
+the output is a pdf containg all figs and an excel containing all data to plot elsewhere*
 
-* Folder containing TrackMate track xml files
-
-## Output
-* MSD analysis
-* Velocity auto-correlation
-
-## Installation
-1. Clone the git repository 
-2. Open a (Anaconda) prompt and change directory to tracking_analysis
-
-    `cd tracking_analysis`
-3. pip install
-
-    `pip install -e .`
-
-4. All requirements are automatically resolved
-
-## Usage
-You can run the tracking analysis using IPython notebook or from the command line interface
-
-#### Command line interace (CLI)
-1. Open a (Anaconda) prompt and change directory to tracking_analysis
-2. Run the python command line interface on the bundled example file with clip of 0.25
-
-    `analyze_tracks_cli example\example_growth_Tracks.xml --clip 0.25`
-
-
-#### IPython notebook
+## IPython notebook
 1. Open `analyze_tracks.ipynb` in Jupyter or IPython notebook
 2. Set variable `filename` or use example file
 3. Use single or batch processing of entire folder
+
+**clip:** *defines the % of the track lenght to fit the model* <br>
+**plot_every:** *defines the interval for inidivual MSD curves (less curves saves computation time) <br>
+*both parameters are optinal and set to 0.5 and 20, respecively
+
+## Usage Requirements
+0. Updated version of Anaconda
+1. Clone the git repository 
+2. Open a (Anaconda) prompt and change directory to the tracking_analysis folder:
+    `cd path\tracking_analysis`
+3. run pip install to install necessary python modules:
+    " pip install -e . "
+4. All requirements to make the code work are automatically resolved
+
+## Comand line Interface (optional feature)
+1. Open a (Anaconda) prompt and change directory to tracking_analysis
+2. Run the python command line interface. For the bundled example file with clip would be 0.25:
+
+    " analyze_tracks_cli example\example_growth_Tracks.xml --clip 0.25 "
 
 
