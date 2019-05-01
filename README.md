@@ -14,7 +14,7 @@ This approach allows to quantify the velocities of thousands of dynamic treadmil
  
 **(C) Tracking_Analysis** <br>
 **Analyze trajectories to quantify velocity and directionality of filaments (Python notebook)** <br>
-`analyze_tracks.ipynb` computes velocity and directionaly qunatifications for a single file or folder (batch) <br>
+`analyze_tracks.ipynb` computes velocity and directionality measurements for a single file or folder (batch) <br>
 
 for more details on this approach and reference to our work check ***(future paper link)*** <br>
 and some other examples of implementing this approach: ***(ZapA and FtsN paper)***
