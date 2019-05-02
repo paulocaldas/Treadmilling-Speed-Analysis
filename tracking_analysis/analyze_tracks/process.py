@@ -40,7 +40,6 @@ def analyze_tracks(filename, clip = 0.5, plot_every = 20):
         pdf.savefig(bbox_inches="tight")
                    
         with pd.ExcelWriter(filename[:-4] + '_Trackmate_Trajectory_Analysis.xlsx') as excel_sheet:
-            
             pd.Series(velo_dist).to_excel(excel_sheet, sheet_name = 'vels_dist', index=False, header = False)
             pd.Series(all_msds_vel).to_excel(excel_sheet, sheet_name = 'msd_vels_hist', index=False, header = False)
             all_msd_curves.to_excel(excel_sheet, sheet_name = 'all_msd_curves', index=False, header = False)
@@ -79,4 +78,4 @@ def analyze_tracks_batch(files_dir, clip = 0.5):
             except:
                 print ("\t Error: File '{}' could not be processed... skipping")
                 continue
-    print('\nAll Done! Yay!')
+    print('\nDone!')

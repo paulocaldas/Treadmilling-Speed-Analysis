@@ -78,8 +78,8 @@ def compute_directionality(table_tracks, frame_interval):
     plt.hlines(0, xmin=0, xmax=corr_t_axis.max(), linestyles = '--', lw = 0.5)
     plt.legend(loc=0, frameon = False)
     plt.xlabel("Delays (s)" , fontsize=12)
-    plt.ylabel("Velocity Autocorrelation", fontsize=12);
-    plt.ylim([-1,1.1])
+    plt.ylabel("Velocity Autocorrelation", fontsize=12)
+    plt.ylim([-1, 1.1])
     plt.title('Directionality Analysis')
     plt.tight_layout()
     
