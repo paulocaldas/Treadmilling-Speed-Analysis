@@ -40,12 +40,18 @@ from src.temporal_gradient import smooth_temporal_gradient
 def main():
     files = []
     for filt in img_extensions.split(";"):
-        files += glob.glob(os.path.join(str(input_dir), filt.strip()))
+        if len(filt.strip()) > 0:
+            files += glob.glob(os.path.join(str(input_dir), filt.strip()))
+        else:
+            files += glob.glob(os.path.join(str(input_dir), "*.*"))
+            break
+
 
     if len(files) == 0:
         IJ.showMessage("No files found in '{}'\nfor extensions '{}'".format(str(input_dir), img_extensions))
     else:
         for fn in files:
+            print(fn)
             imp = BF.openImagePlus(fn)[0]
             img = IJF.wrap(imp)
             
