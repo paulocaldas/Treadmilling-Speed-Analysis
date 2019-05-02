@@ -47,6 +47,7 @@ def analyze_tracks(filename, clip = 0.5, plot_every = 20):
             msd_fit.to_excel(excel_sheet, sheet_name = 'averaged_MSD ', index=False)
             vcorr_data.to_excel(excel_sheet, sheet_name = 'vcorr', index=False)
     
+    plt.show()
     print('Done!')
 
 
