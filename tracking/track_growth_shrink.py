@@ -18,6 +18,10 @@
 #@ Float(label="Spot signal-to-noise ratio",  value=0.5, stepSize=0.1, min=0) snr
 
 from __future__ import print_function, division
+
+__author__ = "christoph.sommer@ist.ac.at"
+
+
 import os
 import sys
 import math
@@ -33,7 +37,7 @@ def get_script_patch():
 # TODO: this will change one the scripts are nicely packaged
 sys.path.append(get_script_patch())
 
-from trackmate_utils import run_trackmate
+from src.trackmate_utils import run_trackmate
 
 UserParameters = namedtuple("UserParameters",  
 							   ['do_subpixel_localization', 

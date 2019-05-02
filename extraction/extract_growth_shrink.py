@@ -54,4 +54,4 @@ if __name__ in ["__builtin__", "__main__"]:
 
         imp.setCalibration(cali)
         
-        scripts.run(File(os.path.join(root_pkg_path, "growth_shrink.py")), True)
+        scripts.run(File(os.path.join(root_pkg_path, "src", "growth_shrink.py")), True)

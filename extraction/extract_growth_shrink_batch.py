@@ -1,14 +1,14 @@
 #@ OpService ops
 #@ File(label="Input directory containg (2D+time)", style="directory") input_dir
-#@ String(label="File extensions", value='*.tif; *.tf8') img_extensions
+#@ String(label="File extensions", value='*.tif; *.tf8', persist=False) img_extensions
 
 #@ String (visibility=MESSAGE, value="Image will be smoothed by a Gaussian filter") msg1
-#@ Float(label="Sigma in time (pixel)",  value=1.5, stepSize=0.1, min=0) sigma_t
-#@ Float(label="Sigma in space (frame)", value=0.5, stepSize=0.1, min=0) sigma_xy
+#@ Float(label="Sigma in time (frames)", value=1.5, stepSize=0.1, min=0) sigma_t
+#@ Float(label="Sigma in space (pixel)", value=0.5, stepSize=0.1, min=0) sigma_xy
 
 #@ Integer(label="Start Frame", value=0, min=0, persist=False) frame_start
-#@ Integer(label="End Frame ", value=-1, persist=False) frame_end
-#@ String (visibility=MESSAGE, value="(use -1 for last frame)") msg3
+#@ Integer(label="End Frame " , value=-1, persist=False) frame_end
+#@ String (visibility=MESSAGE , value="(use -1 for last frame)") msg3
 
 #@ Boolean(label="Normalize outputs", value=true) normalize_output
 
@@ -35,7 +35,7 @@ def get_script_patch():
     return os.path.dirname(os.path.abspath(inspect.getsourcefile(lambda:0)))
 
 sys.path.append(get_script_patch())
-from temporal_gradient import smooth_temporal_gradient
+from src.temporal_gradient import smooth_temporal_gradient
 
 def main():
     files = []

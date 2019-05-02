@@ -1,6 +1,5 @@
 #@ File(label="Input folder with growth/shrinkage files (2D+time)", style="directory") input_dir
 #@ String(label="File extension", value="tiff") file_ext
-#@ String(label="File name contains", value="growth, shrinkage") file_contains
 
 #@ String (visibility=MESSAGE, value="Detector settings") msg1
 #@ Float(label="Diameter of speckle (um)",  value=0.5, stepSize=0.02, min=0) diameter
@@ -20,6 +19,10 @@
 #@ Float(label="Spot signal-to-noise ratio",  value=0.5, stepSize=0.1, min=0) snr
 
 from __future__ import print_function, division
+
+__author__ = "christoph.sommer@ist.ac.at"
+
+
 import os
 import sys
 import math
@@ -36,7 +39,7 @@ def get_script_patch():
 # TODO: this will change one the scripts are nicely packaged
 sys.path.append(get_script_patch())
 
-from trackmate_utils import run_trackmate
+from src.trackmate_utils import run_trackmate
 
 UserParameters = namedtuple("UserParameters",  
 							   ['do_subpixel_localization', 
@@ -50,7 +53,9 @@ UserParameters = namedtuple("UserParameters",
                                 'track_displacement',
                                 'quality', 
                                 'snr'
-                               ])               
+                               ])      
+
+                                        
 
 def main(input_dir, file_contains, params):
     file_list = glob.glob(os.path.join(str(input_dir), "*.{}".format(file_ext)))
@@ -74,6 +79,8 @@ def main(input_dir, file_contains, params):
     IJ.showMessage("Processing of {} input files done.".format(len(file_list)))
         
 if __name__ == "__builtin__":
+
+    file_contains = ""
     params = UserParameters(do_subpixel_localization, 
                             diameter / 2., 
                             threshold, 
