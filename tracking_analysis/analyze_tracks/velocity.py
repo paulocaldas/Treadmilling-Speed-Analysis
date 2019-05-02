@@ -6,19 +6,14 @@ from collections import defaultdict
 from scipy.optimize import curve_fit
 from matplotlib import pyplot as plt
 
-def compute_velocities(trajectory, coords):
-    """computes velocity of tracks"""
-    velo = trajectory[coords] - trajectory[coords].shift(1)
-    return velo.dropna()
-
-def compute_velocities_new(trajectory, coords, frame="FRAME"):
+def compute_velocities(trajectory, coords, frame="FRAME"):
     """computes velocity of tracks"""
     velo = (trajectory[coords] - trajectory[coords].shift(1)).dropna()
     velo[frame] = trajectory[frame].shift(1).dropna()
 
     return velo
 
-def velocity_autocorr_all_tracks_new(trajectory, auto_corr_values, coords, frame="FRAME"):
+def velocity_autocorr_all_tracks(trajectory, auto_corr_values, coords, frame="FRAME"):
     """Compute autocorrelation velocity for each trajectory
     and integrate results into a auto_corr_values dictionary.
     Note, this function has no ouput, adds key,values
@@ -35,20 +30,6 @@ def velocity_autocorr_all_tracks_new(trajectory, auto_corr_values, coords, frame
 
         for t, m in zip(taus, corr):
             auto_corr_values[shift].append(m)
-
-def velocity_autocorr_all_tracks(trajectory, auto_corr_values, coords):
-    """Compute autocorrelation velocity for each trajectory
-    and integrate results into a auto_corr_values dictionary.
-    Note, this function has no ouput, adds key,values
-    to an existent dictionary
-    """
-    n_shifts = len(trajectory)  
-    corr_0 = np.square(trajectory[coords]).sum(axis=1).mean()
-    
-    for shift in range(n_shifts):
-        corr = trajectory[coords] * trajectory[coords].shift(shift)
-        corr = corr.dropna().sum(axis=1) / corr_0
-        auto_corr_values[shift].extend(corr)
 
 def gaussian(x, a, mu, sigma):
     return a*np.exp(-(x-mu)**2/(2*sigma**2))

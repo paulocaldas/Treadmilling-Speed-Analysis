@@ -39,7 +39,6 @@ def msd_all_tracks(trajectory, msds_values, coords, frame="FRAME"):
         for t, m in zip(taus, msd):
             msds_values[t].append(m)
 
-
 def parabola(t, D, V):                        
     return D*t + V*(t**2)
 
