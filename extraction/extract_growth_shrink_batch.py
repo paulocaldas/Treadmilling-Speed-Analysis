@@ -51,8 +51,13 @@ def main():
         IJ.showMessage("No files found in '{}'\nfor extensions '{}'".format(str(input_dir), img_extensions))
     else:
         for fn in files:
-            print(fn)
-            imp = BF.openImagePlus(fn)[0]
+            try:
+                imp = BF.openImagePlus(fn)[0]
+            except:
+                IJ.showMessage("Could not open file '{}' (skipping).\nUse extension filter to filter non-image files...".format(str(fn)))
+                continue
+
+                
             img = IJF.wrap(imp)
             
             cali = imp.getCalibration().copy()
