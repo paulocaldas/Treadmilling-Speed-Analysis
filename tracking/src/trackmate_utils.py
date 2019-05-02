@@ -9,6 +9,9 @@ a module at the bottom can be enable to save spots and tracks statistics
 """
 from __future__ import print_function, division
 
+__author__ = "christoph.sommer@ist.ac.at"
+
+
 import os
 import sys
 import math
@@ -72,7 +75,7 @@ def run_trackmate(imp, path, filename, params, batch_mode=False):
       'DO_MEDIAN_FILTERING' : params.do_median_filtering,
     } 
     
-    print(params)
+#    print(params)
     
     # Add spot filters
     filter_quality = FeatureFilter('QUALITY', params.quality, True)
@@ -117,11 +120,13 @@ def run_trackmate(imp, path, filename, params, batch_mode=False):
      
     ok = trackmate.checkInput()
     if not ok:
-      sys.exit(str(trackmate.getErrorMessage()))
+        IJ.showMessage("No spots found... Adjust detection parameter.\n" + str(trackmate.getErrorMessage()))
+        sys.exit(str(trackmate.getErrorMessage()))
      
     ok = trackmate.process()
     if not ok:
-      sys.exit(str(trackmate.getErrorMessage()))
+        IJ.showMessage("No spots found... Adjust detection parameter.\n" + str(trackmate.getErrorMessage()))
+        sys.exit(str(trackmate.getErrorMessage()))
     
     filename = os.path.splitext(filename)[0] #filename without extension
     outFile = File(os.path.join(path, filename + "_Tracks.xml"))
@@ -133,19 +138,6 @@ def run_trackmate(imp, path, filename, params, batch_mode=False):
     tm_writer.appendSettings(settings)
     tm_writer.writeToFile()
     
-    if False:
-        # Save spots and track stats to .csv file
-        ExportStatsToIJAction().execute(trackmate)
-        IJ.selectWindow("Spots in tracks statistics");
-        IJ.saveAs("Results",os.path.join(path, filename + "_SpotsStats.csv"));
-        IJ.run("Close")
-        IJ.selectWindow("Track statistics");
-        IJ.saveAs("Results",os.path.join(path, filename + "_TracksStats.csv"));
-        IJ.run("Close")
-        IJ.selectWindow("Links in tracks statistics")
-        IJ.run("Close")
-
-    print("Done")
 
     if not batch_mode:
         selectionModel = SelectionModel(model)
