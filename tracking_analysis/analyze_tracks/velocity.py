@@ -46,7 +46,7 @@ def velocities_distribution(table_tracks, frame_interval):
     binning = int(np.sqrt(len(velocities_dist)))
     
     plt.figure(figsize=(5,4), dpi=100)
-    counts, bins, patches = plt.hist(velocities_dist, bins = binning, color = 'blue', edgecolor = 'black')
+    counts, bins, patches = plt.hist(velocities_dist, color = 'blue', alpha = 0.8, edgecolor = 'black')
        
     plt.xlabel('Velocitities (nm/s)', fontsize=12)
     plt.ylabel('Counts', fontsize=12)
