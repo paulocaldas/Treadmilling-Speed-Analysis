@@ -1,5 +1,5 @@
 #@ OpService ops
-#@ File(label="Input directory containg (2D+time)", style="directory") input_dir
+#@ File(label="Input directory", style="directory") input_dir
 #@ String(label="File extensions", value='*.tif; *.tf8', persist=False) img_extensions
 
 #@ String (visibility=MESSAGE, value="Image will be smoothed by a Gaussian filter") msg1
@@ -12,9 +12,9 @@
 
 #@ Boolean(label="Normalize outputs", value=true) normalize_output
 
-#@ Float(label="Pixel width in microns",  value=-1, stepSize=0.1, min=-1) pixel_width
-#@ Float(label="Frame interval in seconds", value=-1, stepSize=0.1, min=0) frame_interval
-#@ String (visibility=MESSAGE, value="To use pixel width and frame interval from meta-data use -1") msg4
+#@ Float(label="Pixel width (microns)",  value=-1, stepSize=0.1, min=-1) pixel_width
+#@ Float(label="Frame interval (seconds)", value=-1, stepSize=0.1, min=0) frame_interval
+#@ String (visibility=MESSAGE, value=" for pixel width and frame interval from metadata use -1") msg4
 
 #@Output comp
 from __future__ import print_function, division

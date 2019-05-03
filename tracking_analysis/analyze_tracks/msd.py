@@ -98,7 +98,7 @@ def single_track_analysis(table_tracks, frame_interval, plot_every=10, track_id=
     # plot final histogram
     all_velocities = [vel for vel in all_velocities if vel >= 1]
     
-    binning = int(np.sqrt(len(all_velocities)))
+    binning = [max(len(all_velocities)) - min(len(all_velocities))]/10
     
     counts, bins, patches = plt.hist(all_velocities, bins = binning, edgecolor = 'black')
     

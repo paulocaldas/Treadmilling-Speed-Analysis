@@ -1,9 +1,9 @@
 #@ OpService ops
-#@ ImagePlus(label="Image to process (2D+time)") imp
+#@ ImagePlus(label=" Time-Lapse to process") imp
 
 #@ String (visibility=MESSAGE, value="Image will be smoothed by a Gaussian filter") msg1
-#@ Float(label="Sigma in time (px)",  value=1.5, stepSize=0.1, min=0) sigma_t
-#@ Float(label="Sigma in space (px)", value=0.5, stepSize=0.1, min=0) sigma_xy
+#@ Float(label="Sigma in time (frames)",  value=1.5, stepSize=0.1, min=0) sigma_t
+#@ Float(label="Sigma in space (pixel)", value=0.5, stepSize=0.1, min=0) sigma_xy
 #@ String (visibility=MESSAGE, value="Select range") msg2
 #@ Integer(label="Start Frame", value=0, min=0, persist=False) frame_start
 #@ Integer(label="End Frame ", value=-1, persist=False) frame_end

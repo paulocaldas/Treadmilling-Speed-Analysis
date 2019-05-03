@@ -1,10 +1,10 @@
-#@ File(label="Input folder with growth/shrinkage files (2D+time)", style="directory") input_dir
+#@ File(label="Input folder with growth/shrinkage movies", style="directory") input_dir
 #@ String(label="File extension", value="tiff") file_ext
 
 #@ String (visibility=MESSAGE, value="Detector settings") msg1
 #@ Float(label="Diameter of speckle (um)",  value=0.5, stepSize=0.02, min=0) diameter
 #@ Float(label="Threshold", value=5, stepSize=0.1, min=0) threshold
-#@ Boolean(label="Subpixel localization", value=true) do_subpixel_localization
+#@ Boolean(label="Subpixel localization", value=true) do_subpixel_localization; 
 #@ Boolean(label="Median filtering", value=False) do_median_filtering
 
 #@ String (visibility=MESSAGE, value="Linker settings") msg2
@@ -13,10 +13,10 @@
 #@ Integer(label="Maximum frame gap (frames)", value=0, min=0) max_frame_gap
 
 #@ String (visibility=MESSAGE, value="Filter settings") msg3
-#@ Integer(label="Track duration (sec)", value=12, min=0) track_duration
-#@ Float(label="Minimum track displacement (um)", value=0.2, min=0) track_displacement
-#@ Float(label="Spot quality",  value=0, stepSize=0.1, min=0) quality
-#@ Float(label="Spot signal-to-noise ratio",  value=0.5, stepSize=0.1, min=0) snr
+#@ Float(label="Spot min SNR ratio",  value=0.5, stepSize=0.1, min=0) snr
+#@ Float(label="Track min displacement (um)", value=0.2, min=0) track_displacement
+#@ Integer(label="Track min duration (sec)", value=12, min=0) track_duration
+
 
 from __future__ import print_function, division
 
