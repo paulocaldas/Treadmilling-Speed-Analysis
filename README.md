@@ -3,9 +3,9 @@
 
 The workflow of this protocol to analyze filament polymerization dynamics starts from time lapse movies of evenly labeled treadmilling protein filament networks, followed by three computational steps:
 
-(i)	Extraction: generation of dynamic fluorescent speckles by image subtraction; <br>
-(ii)	Tracking: detection and tracking fluorescent speckles to build treadmilling trajectories <br>
-(iii)	Tracking Analysis: analysis of trajectories to quantify velocity and directionality of filaments 
+(i)	**Extraction**: generation of dynamic fluorescent speckles by image subtraction; <br>
+(ii)	**Tracking**: detection and tracking fluorescent speckles to build treadmilling trajectories <br>
+(iii)	**Tracking Analysis**: analysis of trajectories to quantify velocity and directionality of filaments 
 
 All these algorithms use simple open-source tools (ImageJ plugins and python scripts) and can be applied for a single time-lapse movie or for multiple files at once in batch processing mode. This creates a highly time-efficient routine to identify and track hundreds of speckles at once. 
 
@@ -50,5 +50,5 @@ for more details on this approach and reference to our work: <br>
 Examples implementing this approach:<br>
 *ZapA stabilizes FtsZ filament bundles without slowing down treadmilling dynamics* <br>
 https://www.biorxiv.org/content/10.1101/580944v2 <br>
-*FtsZ assembles the bacterial cell division machinery by a diffusion-and-capture mechanism*** <br>
+*FtsZ assembles the bacterial cell division machinery by a diffusion-and-capture mechanism* <br>
 https://www.biorxiv.org/content/10.1101/485656v1
