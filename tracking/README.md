@@ -1,4 +1,4 @@
-# Tracking Fluorescent speckles with TrackMate
+# Tracking Fluorescent Speckles with TrackMate
 
 **How to use this ImageJ macro**:
 
