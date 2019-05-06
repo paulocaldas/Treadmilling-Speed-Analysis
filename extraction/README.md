@@ -10,7 +10,7 @@ This folder contains two macros for imageJ: one to process a single movie (`extr
 4. A GUI is open to set the frame range (whole movie by default) and the box filter parameters σ_xy and σ_t. 
 5. The output is a composite movie containing two new movies corresponding to growth (green) and shrinkage (red) overlapped with the raw data (blue). These channels can be splited and used for the following analysis step.
 
-The extent of the spatial smoothing is defined by the standard deviation (σ) of two Gaussian functions (σ_x and σ_y). Our protocol applies an isotropic smoothing (σ_x = σ_y = σ_xy) and should be adjusted according to the size of the object of interest (in pixels). Likewise, the number of frames considered for the spatial filtering (σ_t) depends on the dynamics of the process studied and needs to be optimized for every given frame rate. This parameter is adjusted through trial and error until speckles with a good signal-to-noise ratio are created. For isntance, in our images we used σ_xy = 0.5 pixels and σ_t = 1.5 frames.
+The extent of the spatial smoothing is defined by the standard deviation (σ) of two Gaussian functions (σ_x and σ_y). Our protocol applies an isotropic smoothing (σ_x = σ_y = σ_xy) and should be adjusted according to the size of the object of interest (in pixels). Likewise, the number of frames considered for the spatial filtering (σ_t) depends on the dynamics of the process studied and needs to be optimized for every given frame rate. This parameter is adjusted through trial and error until speckles with a good signal-to-noise ratio are created.
 
 ## Generate speckles in batch
 Once the optimal box filter parameters are defined for a given experimental setup our protocol can be apply for several files at once:
