@@ -12,10 +12,10 @@
 #@ Integer(label="Maximum frame gap (frames)", value=0, min=0) max_frame_gap
 
 #@ String (visibility=MESSAGE, value="Filter settings") msg3
-#@ Integer(label="Track duration (sec)", value=12, min=0) track_duration
-#@ Float(label="Minimum track displacement (um)", value=0.2, min=0) track_displacement
-#@ Float(label="Spot quality",  value=0, stepSize=0.1, min=0) quality
-#@ Float(label="Spot signal-to-noise ratio",  value=0.5, stepSize=0.1, min=0) snr
+#@ Float(label="Particles quality filter",  value=0, stepSize=0.1, min=0) quality
+#@ Float(label="Particles min SNR ratio",  value=0.5, stepSize=0.1, min=0) snr
+#@ Float(label="Track min displacement (um)", value=0.2, min=0) track_displacement
+#@ Integer(label="Track min duration (sec)", value=12, min=0) track_duration
 
 from __future__ import print_function, division
 
