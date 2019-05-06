@@ -1,4 +1,4 @@
-# Generating Fluorescent Speckles by Differential Imaging
+# Generating fluorescent speckles by differential imaging
 
 This folder contains two macros for imageJ: one to process a single movie (`extract_growth_shrink.py`) and a second one to process multiple files at once (`extract_growth_shrink_batch.py`). Both macros rely on modules contained inside the src folder and for that reason they should be kept together as they are here.
 
