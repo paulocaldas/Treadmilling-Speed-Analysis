@@ -7,10 +7,9 @@ This folder contains a python notebook `analyze_tracks.ipynb` that uses TrackMat
 * Average velocity from fitting a weighted-mean MSD curve (assuming a directed motion)
 * Velocity auto-correlation function
 
-*works for a single file or in batch. <br>
-the output is a pdf containg all figs and an excel containing all data to plot elsewhere*
-
-*All the necessary modules are inside the `analyze_tracks` folder.* <br>
+works for a single file or in batch. <br>
+the output is a pdf containg all figs and an excel containing all data to plot elsewhere
+All the necessary modules are inside the `analyze_tracks` folder.* <br>
 
 ## Usage Requirements
 0. Updated version of Anaconda
