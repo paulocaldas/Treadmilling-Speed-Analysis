@@ -1,17 +1,20 @@
 # Generating fluorescent speckles by differential imaging
 
-Intensity subtraction of two consecutive frames generates a new time-lapse movie where persistent pixels are removed and only short-term intensity oscilations are kept. Thus, motionless objects generate dark/empty pixels while positive and negative intensity differences correspond to fluorescent material being added or removed at a given position, respectively. We use this strategy to produce time-lapse movies of directionally moving fluorescent speckles corresponding to growth and shrinkage of FtsZ bundles. To reduce noise and background contribution during the subtraction process and improve the subsquent tracking procedure, we include a spatiotemporal Gaussian filter prior to image subtraction. Our script applies a box filter defined by **σ(xy)**, which should be adjusted according to the size of the object of interest, and **σ(t)**, which should be adjusted according to the frame rate.
+**How to use this macro:**
 
-## Usage: ImageJ macro
+To generate speckles from a single time-lapse movie:
 
-Two ImageJ macros (Jython) are available:
+1. Open movie of interest in ImageJ (or Fiji).
+2. Open macro `extract_growth_shrink.py` and run it.
+3. A window pops up to correct/confirm the physical units.
+4. A GUI is open to set the frame range (whole movie by default) and the box filter parameters σ_xy and σ_t. 
+5. The output is a composite movie containing two new movies corresponding to growth (green) and shrinkage (red) overlapped with the raw data (blue). These channels can be splited and used for the following analysis step.
 
-`extract_growth_shrink.py` <br>
-*takes a time-lapse movie open in imageJ as input. An interactive window allows to correct/modify physical units, select the number of frames to analyze and set the box filter. The output is a composite movie containing two new movies corresponding to growth (green) and shrinkage (red) overlapped with the raw data. These channels can be splited and used for post-analsysis.*
+The extent of the spatial smoothing is defined by the standard deviation (σ) of two Gaussian functions (σ_x and σ_y). Our protocol applies an isotropic smoothing (σ_x = σ_y = σ_xy) and should be adjusted according to the size of the object of interest (in pixels). Likewise, the number of frames considered for the spatial filtering (σ_t) depends on the dynamics of the process studied and needs to be optimized for every given frame rate. This parameter is adjusted through trial and error until speckles with a good signal-to-noise ratio are created. For isntance, in our images we used σ_xy = 0.5 pixels and σ_t = 1.5 frames.
 
-`extract_growth_shrink_batch.py` <br>
-*running the macro opens an interactive window that allows to select a folder containing several time-lapse movies, set the same parameter as before. The previous process is applied to all files in the selected folder in a windowless process. All 'growth' and 'shrink' movies are saved as tif files in the same directory.*
+Once the optimal box filter parameters are defined for a given experimental setup, <br>
+this process can be apply for several files at once in batch process mode:
 
-`growth_shrink.py` and `temporal_gradient.py`<br>
-*contain necessary modules to run the macros above.* <br>
-*they should be kept inside the same folder*
+1. Open macro `extract_growth_shrink_batch.py` in ImageJ (or Fiji) and run it.
+2. A GUI is open to select a directory folder containing the files of interest and set the parameters for batch analysis. Note that only .tif and .tf8 files are processed by default, if no other file extension is provided. As before, set the frame range, calibrate the physical units, and provide the optimal box filter parameters (σ_xy and σ_t) ideally defined beforehand using the macro for a single movie.
+3. Image subtraction is computed for every file in a windowless manner and two new-time lapse movies containing fluorescent speckles (growth and shrinkage) are saved in the same selected directory
