@@ -48,7 +48,7 @@ for more details on this approach and reference to our work: <br>
 *(future chapter/paper link)*
 
 Examples implementing this approach:<br>
-*ZapA stabilizes FtsZ filament bundles without slowing down treadmilling dynamics*
-https://www.biorxiv.org/content/10.1101/580944v2
-*FtsZ assembles the bacterial cell division machinery by a diffusion-and-capture mechanism***
+*ZapA stabilizes FtsZ filament bundles without slowing down treadmilling dynamics* <br>
+https://www.biorxiv.org/content/10.1101/580944v2 <br>
+*FtsZ assembles the bacterial cell division machinery by a diffusion-and-capture mechanism*** <br>
 https://www.biorxiv.org/content/10.1101/485656v1
