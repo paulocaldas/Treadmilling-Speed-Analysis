@@ -25,7 +25,7 @@ Since simple image subtraction is susceptible to noise and can generate stretche
 
 Here, we take advantage of TrackMate for particle detection and tracking of the fluorescent speckles. Reconstructed trajectories from the identified spatial positions in time can be further analyzed to retrieve quantitative information about the type of behavior (e.g. directed or diffusive motion), diffusion constant, velocity or lifetime of the particles, as well as the length of trajectories. On a first approach to this routine, TrackMate GUI should be used to identify the optimal parameters for detecting, tracking and linking the trajectories of the particles. Once the parameters for a given experimental setup are defined, the Trackmate protocol can be applied to multiple time-lapse movies simultaneously with our ImageJ macro.
 
-`track_growth_shrink.py` opens an interactive window to run TracMate wihtout GUI <br>
+`track_growth_shrink.py` opens an interactive window to run TracMate without GUI <br>
 `track_growth_shrink_batch.py` opens an interactive window to run TracMate for several files at once <br>
  
 **(C) Tracking_Analysis** <br>
