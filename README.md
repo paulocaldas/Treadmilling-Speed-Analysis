@@ -40,7 +40,12 @@ The positive curvature our MSD curves is characteristic of particles moving dire
 Random motion particles typically show velocity vectors completely uncorrelated with φ = 0 for all δt, while particles with a directed migration display highly correlated velocity vectors (φ > 0) even for larger δt. <br>
 Our routine to analyze speckle trajectories is implemented in a simple IPython notebook. All imported modules located in the adjacent folder can be edited and adapted according to the each user needs
 
-`analyze_tracks.ipynb` computes velocity and directionality measurements for a single file or folder (batch) <br>
+`analyze_tracks.ipynb` computes velocity and directionality measurements for a single file or folder (batch)
+
+
+**Illustration of the Differential Image Protocol**
+
+![alt text](https://github.com/paulocaldas/Treadmilling-Speed-Analysis/blob/master/Differential_image_procotol.png)
 
 Overall, this approach allowed us to surpass the limitations of using kymographs and only requires widely-used open-source software packages with no need to change the standard time-lapse imaging. Moreover, even though we used this approach to quantitatively characterize growth and shrinkage of in vitro treadmilling FtsZ filaments, we believe this approach is applicable to study the polymerization dynamics of other cytoskeletal systems.
 
