@@ -25,23 +25,16 @@ Since simple image subtraction is susceptible to noise and can generate stretche
 
 Here, we take advantage of TrackMate for particle detection and tracking of the fluorescent speckles. Reconstructed trajectories from the identified spatial positions in time can be further analyzed to retrieve quantitative information about the type of behavior (e.g. directed or diffusive motion), diffusion constant, velocity or lifetime of the particles, as well as the length of trajectories. On a first approach to this routine, TrackMate GUI should be used to identify the optimal parameters for detecting, tracking and linking the trajectories of the particles. Once the parameters for a given experimental setup are defined, the Trackmate protocol can be applied to multiple time-lapse movies simultaneously with our ImageJ macro.
 
+`track_growth_shrink.py` opens an interactive window to run TracMate wihtout GUI <br>
 `track_growth_shrink_batch.py` opens an interactive window to run TracMate for several files at once <br>
  
 **(C) Tracking_Analysis** <br>
 **Analyze trajectories to quantify velocity and directionality of filaments (Python notebook)**
 
 Here, we use the spatiotemporal information of the trajectories obtained from TrackMate to quantify speed and directionality. 
-We compute the mean square displacement (MSD) of the particles and fit all the curves to a quadratic equation containing both a diffusion (D) and a constant squared velocity (𝜈) term:
+We compute the mean square displacement (MSD) of the particles and fit all the curves to a quadratic equation containing both a diffusion (D) and a constant squared velocity (𝜈) term. The positive curvature our MSD curves is characteristic of particles moving directionally. To further corroborate the information regarding directed motion, we also compute the velocity autocorrelation function (φ (δt)), where the angle of the normalized displacement vectors are compared pairwise as a function of an increasing time interval (δt). Random motion particles typically show velocity vectors completely uncorrelated with φ = 0 for all δt, while particles with a directed migration display highly correlated velocity vectors (φ > 0) even for larger δt. Our routine to analyze speckle trajectories is implemented in a simple IPython notebook. All imported modules located in the adjacent folder can be edited and adapted according to the each user needs
 
-〈(∆r)^2 (δt)〉 = 〈 (∆r)^2 (δt)〉 = 〈(r(t+δt)-r(t))^2 〉 = 4Dt + (vt)^2
-
-The positive curvature our MSD curves is characteristic of particles moving directionally. To further corroborate this information regarding directed motion, we also compute the velocity autocorrelation function (φ (δt)). Here, the angle of the normalized displacement vectors (v ⃗_i) are compared pairwise as a function of an increasing time interval (δt):<br>
-φ (δt)= 〈( v) ⃗_i (t).v ⃗_i (t+δt )〉 <br>	
-Random motion particles typically show velocity vectors completely uncorrelated with φ = 0 for all δt, while particles with a directed migration display highly correlated velocity vectors (φ > 0) even for larger δt. <br>
-Our routine to analyze speckle trajectories is implemented in a simple IPython notebook. All imported modules located in the adjacent folder can be edited and adapted according to the each user needs
-
-`analyze_tracks.ipynb` computes velocity and directionality measurements for a single file or folder (batch)
-
+`analyze_tracks.ipynb` computes velocity and directionality measurements for a single file or folder (batch) <br>
 
 **Illustration of the Differential Image Protocol**
 
