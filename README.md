@@ -36,7 +36,7 @@ We compute the mean square displacement (MSD) of the particles and fit all the c
 
 `analyze_tracks.ipynb` computes velocity and directionality measurements for a single file or folder (batch) <br>
 
-**Illustration of the Differential Image Protocol**
+### Illustration of the Differential Image Protocol
 
 ![alt text](https://github.com/paulocaldas/Treadmilling-Speed-Analysis/blob/master/fig_differential_image_protocol.png)
 
