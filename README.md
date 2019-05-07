@@ -38,7 +38,7 @@ We compute the mean square displacement (MSD) of the particles and fit all the c
 
 **Illustration of the Differential Image Protocol**
 
-![alt text](https://github.com/paulocaldas/Treadmilling-Speed-Analysis/blob/master/differential_image_protocol.png)
+![alt text](https://github.com/paulocaldas/Treadmilling-Speed-Analysis/blob/master/fig_differential_image_protocol.png)
 
 Overall, this approach allowed us to surpass the limitations of using kymographs and only requires widely-used open-source software packages with no need to change the standard time-lapse imaging. Moreover, even though we used this approach to quantitatively characterize growth and shrinkage of in vitro treadmilling FtsZ filaments, we believe this approach is applicable to study the polymerization dynamics of other cytoskeletal systems.
 
