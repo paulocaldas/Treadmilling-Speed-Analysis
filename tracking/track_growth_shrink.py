@@ -12,7 +12,6 @@
 #@ Integer(label="Maximum frame gap (frames)", value=0, min=0) max_frame_gap
 
 #@ String (visibility=MESSAGE, value="Filter settings") msg3
-#@ Float(label="Particles quality filter",  value=0, stepSize=0.1, min=0) quality
 #@ Float(label="Particles min SNR ratio",  value=0.5, stepSize=0.1, min=0) snr
 #@ Float(label="Track min displacement (um)", value=0.2, min=0) track_displacement
 #@ Integer(label="Track min duration (sec)", value=12, min=0) track_duration
@@ -76,7 +75,7 @@ if __name__ in ["__builtin__", "__main__"]:
                             max_frame_gap, 
                             track_duration, 
                             track_displacement,
-                            quality, 
+                            0, 
                             snr)
 
     input_file = str(input_file)
