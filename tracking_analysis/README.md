@@ -17,7 +17,7 @@ All the necessary modules are inside the `analyze_tracks` folder.* <br>
 2. Open a (Anaconda) prompt and change directory to the tracking_analysis folder:
     `cd path\tracking_analysis`
 3. run pip install to install necessary python modules:
-    `pip install -e .`
+    `pip install -r requirements.txt -e .`
 4. All requirements to make the code work are automatically resolved
 
 ## IPython notebook
