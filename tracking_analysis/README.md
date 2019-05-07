@@ -2,13 +2,13 @@
 
 This folder contains a python notebook `analyze_tracks.ipynb` that uses TrackMate's XML file as input and computes: <br>
 
-* Velocities distribuition (histogram) directly from particle displacement
-* Velocitiy distribution (histogram) from fitting MSD curves individually (assuming directed motion)
+* Velocities distribution (histogram) directly from particle displacement
+* Velocity distribution (histogram) from fitting MSD curves individually (assuming directed motion)
 * Average velocity from fitting a weighted-mean MSD curve (assuming a directed motion)
 * Velocity auto-correlation function
 
 works for a single file or in batch. <br>
-the output is a pdf containg all figs and an excel containing all data to plot elsewhere
+the output is a pdf containing all figs and an excel containing all data to plot elsewhere
 All the necessary modules are inside the `analyze_tracks` folder.* <br>
 
 ## Usage Requirements
@@ -26,7 +26,7 @@ All the necessary modules are inside the `analyze_tracks` folder.* <br>
 3. Use single or batch processing of entire folder
 
 **clip:** *defines the % of the track length to fit the model and is set to 0.5 by default* <br>
-**plot_every:** *defines the interval for inidivual MSD curves and is set to 20 by default (less curves saves computation time)* <br>
+**plot_every:** *defines the interval for individual MSD curves and is set to 20 by default (less curves saves computation time)* <br>
 
 ## Comand line Interface (optional feature)
 1. Open a (Anaconda) prompt and change directory to tracking_analysis
