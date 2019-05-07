@@ -28,7 +28,7 @@ All the necessary modules are inside the `analyze_tracks` folder.* <br>
 **clip:** *defines the % of the track length to fit the model and is set to 0.5 by default* <br>
 **plot_every:** *defines the interval for individual MSD curves and is set to 20 by default (less curves saves computation time)* <br>
 
-## Comand line Interface (optional feature)
+## Command line Interface (optional feature)
 1. Open a (Anaconda) prompt and change directory to tracking_analysis
 2. Run the python command line interface. For the bundled example file with clip would be 0.25:
 
