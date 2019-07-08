@@ -68,8 +68,15 @@ def main():
             if frame_interval > 0:
                 cali.frameInterval = frame_interval
                 cali.setTimeUnit("sec.")
-            
-            imp_out = smooth_temporal_gradient(ops, img, sigma_xy, sigma_t, frame_start, frame_end, normalize_output)
+                
+
+            try:
+                imp_out = smooth_temporal_gradient(ops, img, sigma_xy, sigma_t, frame_start, frame_end, normalize_output)
+            except AssertionError as a_error:
+                IJ.showMessage("Error with file '{}' (skipping).\n{}".format(str(fn), str(a_error)))
+                continue
+                
+                
             imp_out.setCalibration(cali)
         
             channels = ChannelSplitter.split(imp_out)            

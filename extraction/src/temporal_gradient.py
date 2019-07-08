@@ -58,7 +58,9 @@ def smooth_temporal_gradient(ops, img, sigma_xy, sigma_t, frame_start, frame_end
     if frame_end > dim_t:
         frame_end = dim_t
 
-    assert frame_start < frame_end, "'Frame start' must be smaller than 'Frame end'"
+    assert frame_start < dim_t, "'Frame start' is bigger than movie length" 
+    assert frame_start + 2 < frame_end, "'Frame start' must be smaller than 'Frame end' at least by three"
+    
         
     ## crop image temporally by using a View    
     # img_crop = Views.interval(img, [0, 0, frame_start], [dim_x-1, dim_y-1, frame_end-1])
