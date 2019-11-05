@@ -13,6 +13,26 @@ def compute_velocities(trajectory, coords, frame="FRAME"):
 
     return velo
 
+def velocities_distribution(table_tracks, frame_interval):
+    '''plots distribuition of velocities directly from the track displacement'''
+    
+    print('Processing Velocities Distribution ...')
+    
+    velocities = table_tracks.groupby("TRACK_ID").apply(compute_velocities, coords=['POSITION_X', 'POSITION_Y']);
+    velocities_dist = np.sqrt((velocities[['POSITION_X', 'POSITION_Y']] ** 2).sum(1)) / frame_interval * 1000 # in nm/s
+    
+    #binning = int(np.sqrt(len(velocities_dist)))
+    
+    plt.figure(figsize=(5,4), dpi=100)
+    counts, bins, patches = plt.hist(velocities_dist, color = 'blue', alpha = 0.8, edgecolor = 'black')
+       
+    plt.xlabel('Velocitities (nm/s)', fontsize=12)
+    plt.ylabel('Counts', fontsize=12)
+    #plt.legend(loc=0, fontsize = 10, frameon = False)
+    plt.title(" Velocities Distribution")
+    
+    return velocities_dist
+
 def velocity_autocorr_all_tracks(trajectory, auto_corr_values, coords, frame="FRAME"):
     """Compute autocorrelation velocity for each trajectory
     and integrate results into a auto_corr_values dictionary.
@@ -33,27 +53,6 @@ def velocity_autocorr_all_tracks(trajectory, auto_corr_values, coords, frame="FR
 
 def gaussian(x, a, mu, sigma):
     return a*np.exp(-(x-mu)**2/(2*sigma**2))
-
-
-def velocities_distribution(table_tracks, frame_interval):
-    '''plots distribuition of velocities directly from the track displacement'''
-    
-    print('Processing Velocities Distribution ...')
-    
-    velocities = table_tracks.groupby("TRACK_ID").apply(compute_velocities, coords=['POSITION_X', 'POSITION_Y']);
-    velocities_dist = np.sqrt((velocities[['POSITION_X', 'POSITION_Y']] ** 2).sum(1)) / frame_interval * 1000 # in nm/s
-    
-    binning = int(np.sqrt(len(velocities_dist)))
-    
-    plt.figure(figsize=(5,4), dpi=100)
-    counts, bins, patches = plt.hist(velocities_dist, color = 'blue', alpha = 0.8, edgecolor = 'black')
-       
-    plt.xlabel('Velocitities (nm/s)', fontsize=12)
-    plt.ylabel('Counts', fontsize=12)
-    #plt.legend(loc=0, fontsize = 10, frameon = False)
-    plt.title(" Velocities Distribution")
-    
-    return velocities_dist
 
 def compute_directionality(table_tracks, frame_interval):
     'there is no output, just a visualization tool'
