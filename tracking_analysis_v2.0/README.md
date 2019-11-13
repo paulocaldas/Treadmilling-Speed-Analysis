@@ -11,7 +11,7 @@ This folder contains a python notebook `analyze_tracks_v2.ipynb` that uses Track
 the script works for a single xml file or in batch for multiple files at once. <br>
 the output is a pdf containing all figs and an excel book containing all tables (to plot elsewhere) <br>
 files are saved in the same directory of the `filename` or `files_dir` <br>
-All the scripts are inside the `bkg_func` folder.* <br>
+All the scripts are inside the `bkg_func` folder. <br>
 
 ## Automatically install/update necssary packages (if necessary)
 0. Updated version of Anaconda
