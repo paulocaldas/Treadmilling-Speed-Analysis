@@ -53,27 +53,28 @@ def plot_trajectories(table_tracks):
     plt.title('Number of Tracks = ' + str(groups), fontsize = 9)
 	
 # all velocity functions
-	
-def compute_instant_velo(trajectory, frame_interval, coords = ['POSITION_X','POSITION_Y','FRAME']):
-    """computes mean velocity for a given track using step velocity mean
-    the output is a mean of step velocity means"""
+
+def compute_desloc_per_step(trajectory, frame_interval, coords = ['POSITION_X','POSITION_Y'], frame = 'FRAME'):
+    """computes step displacement for a given track """
     desloc_per_step = (trajectory[coords] - trajectory[coords].shift(1)).dropna()
-    instant_velo = np.sqrt((desloc_per_step[coords[:-1]] ** 2).sum(1)) / (frame_interval * desloc_per_step[coords[-1]]) # gap corrects for jumps
-    return instant_velo.mean()
+    desloc_per_step[frame] = trajectory[frame].shift(1).dropna()
+    return desloc_per_step
+	
 
 def velocities_distribution(table_tracks, frame_interval, bins = 10):
     '''plots distribuition of velocities for all tracks directly from the track displacement'''
     
     print('... track displacement velocity analysis ... ')
     
-    vel_dist = table_tracks.groupby("TRACK_ID").apply(compute_instant_velo, frame_interval = frame_interval);
+    desloc_all_tracks = table_tracks.groupby("TRACK_ID").apply(compute_desloc_per_step, frame_interval = frame_interval);
+    vel_dist = np.sqrt((desloc_all_tracks[['POSITION_X', 'POSITION_Y']] ** 2).sum(1)) / frame_interval * 1000 # in nm/s
     
     # plot histogram of velocitites in nanometers
     plt.figure(figsize = (4,3), dpi = 120)
     
-    counts, bins, patches = plt.hist(vel_dist * 1000, bins = bins, 
+    counts, bins, patches = plt.hist(vel_dist, bins = bins, 
                                      color = 'seagreen', alpha = 0.8, edgecolor = 'w',
-                                     label = 'n_tracks = ' + str(len(vel_dist)))
+                                     label = 'n_spots = ' + str(len(vel_dist)))
     
     plt.xlabel('velocitities (nm/s)', fontsize = 10)
     plt.ylabel('counts', fontsize = 10)
@@ -82,6 +83,10 @@ def velocities_distribution(table_tracks, frame_interval, bins = 10):
     
     return vel_dist
 
+# alternative version: compute the instant velocity of each track and averages everything for all tracks, smth like this:
+# instant_velo = np.sqrt((desloc_per_step[coords[:-1]] ** 2).sum(1)) / (frame_interval * desloc_per_step[coords[-1]]) # gap corrects for jumps
+# table_tracks.groupby("TRACK_ID").apply(instant_velo, frame_interval = frame_interval).mean()
+# this creates a bias to a normal distribution as we compute a mean of means
 
 def msd_per_track(trajectory, coords):
     """Compute MSD for one trajectory """
@@ -146,8 +151,11 @@ def single_track_analysis(table_tracks, frame_interval, clip = 0.5, plot_every =
             
             if i % plot_every == 0: # plot only every nth curve to save ram memory and time
                 
-                #ax[0].plot(taus,msd, '-', lw = 0.8, color = plt.cm.Greens(i))
-                ax[0].plot(t_values, parabola(t_values, D,V), '-', lw = 0.8, color = plt.cm.Greens(i*0.1))
+                ax[0].plot(taus,msd, '-o', markersize = 4, markeredgecolor = 'black', markeredgewidth = 0.4, 
+										alpha = 0.4, lw = 0.8, color = plt.cm.Greens(i*0.1))
+                
+				# in case one wants to show the fits instead
+				#ax[0].plot(t_values, parabola(t_values, D,V), '-', lw = 0.8, color = plt.cm.Greens(i*0.1))
                 ax[0].set_title("single track MSD analysis", fontsize = 9)
                 ax[0].set_xlabel('delay (s)', fontsize = 10)
                 ax[0].set_ylabel('MSD ($\mu$m$^2$)', fontsize = 10)
