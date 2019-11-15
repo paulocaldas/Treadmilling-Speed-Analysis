@@ -1,4 +1,0 @@
-include README.md
-include requirements.txt
-include analyze_tracks/*.py
-include analyze_tracks.ipynb
