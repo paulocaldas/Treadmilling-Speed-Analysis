@@ -43,7 +43,7 @@ We compute the mean square displacement (MSD) of the particles and fit all the c
 Overall, this approach allowed us to surpass the limitations of using kymographs and only requires widely-used open-source software packages with no need to change the standard time-lapse imaging. Moreover, even though we used this approach to quantitatively characterize growth and shrinkage of in vitro treadmilling FtsZ filaments, we believe this approach is applicable to study the polymerization dynamics of other cytoskeletal systems.
 
 for more details on this approach and reference to our work: <br>
-*(future chapter/paper link)*
+https://www.biorxiv.org/content/10.1101/839571v2
 
 Examples implementing this approach:<br>
 *ZapA stabilizes FtsZ filament bundles without slowing down treadmilling dynamics* <br>
