@@ -45,8 +45,10 @@ Overall, this approach allowed us to surpass the limitations of using kymographs
 for more details on this approach and reference to our work: <br>
 https://www.biorxiv.org/content/10.1101/839571v2
 
-Examples implementing this approach:<br>
+papers using this approach:<br>
+<br>
 *ZapA stabilizes FtsZ filament bundles without slowing down treadmilling dynamics* <br>
-https://www.biorxiv.org/content/10.1101/580944v2 <br>
+https://www.nature.com/articles/s41467-019-13702-4 <br>
+<br>
 *FtsZ assembles the bacterial cell division machinery by a diffusion-and-capture mechanism* <br>
 https://www.biorxiv.org/content/10.1101/485656v1
