@@ -43,10 +43,10 @@ We compute the mean square displacement (MSD) of the particles and fit all the c
 Overall, this approach allowed us to surpass the limitations of using kymographs and only requires widely-used open-source software packages with no need to change the standard time-lapse imaging. Moreover, even though we used this approach to quantitatively characterize growth and shrinkage of in vitro treadmilling FtsZ filaments, we believe this approach is applicable to study the polymerization dynamics of other cytoskeletal systems.
 
 **for more details on this approach and reference to our work:** <br>
-https://www.biorxiv.org/content/10.1101/839571v2
+https://www.sciencedirect.com/science/article/pii/S0091679X20300066
 
 **papers using this approach:** <br> 
 *Cooperative ordering of treadmilling filaments in cytoskeletal networks of FtsZ and its crosslinker ZapA* <br>
 https://www.nature.com/articles/s41467-019-13702-4 <br>
-*FtsZ assembles the bacterial cell division machinery by a diffusion-and-capture mechanism* <br>
-https://www.biorxiv.org/content/10.1101/485656v1
+*Diffusion and capture permits dynamic coupling between treadmilling FtsZ filaments and cell division proteins* <br>
+https://www.nature.com/articles/s41564-019-0657-5
