@@ -75,7 +75,7 @@ def main(input_dir, file_contains, params):
 
     IJ.showMessage("Processing of {} input files done.".format(len(file_list)))
         
-if __name__ == "__builtin__":
+if __name__ in ["__builtin__", "__main__"]:
 
     file_contains = ""
     params = UserParameters(do_subpixel_localization, 
