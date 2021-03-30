@@ -50,4 +50,6 @@ https://www.sciencedirect.com/science/article/pii/S0091679X20300066
 *Cooperative ordering of treadmilling filaments in cytoskeletal networks of FtsZ and its crosslinker ZapA* <br>
 https://www.nature.com/articles/s41467-019-13702-4 <br>
 *Diffusion and capture permits dynamic coupling between treadmilling FtsZ filaments and cell division proteins* <br>
-https://www.nature.com/articles/s41564-019-0657-5
+https://www.nature.com/articles/s41564-019-0657-5 <br>
+*Spatial Variation of Microtubule Depolymerization in Large Asters* <br>
+https://www.molbiolcell.org/doi/10.1091/mbc.E20-11-0723
