@@ -33,7 +33,7 @@ from fiji.plugin.trackmate.features import FeatureFilter, \
                                           
 # Spot staticstics
 from fiji.plugin.trackmate.features.spot import SpotContrastAndSNRAnalyzerFactory, \
-                                                SpotIntensityAnalyzerFactory
+                                                SpotIntensityMultiCAnalyzerFactory
 
 # Track statistics
 from fiji.plugin.trackmate.features.track import TrackBranchingAnalyzer, \
@@ -46,7 +46,7 @@ from fiji.plugin.trackmate.features.track import TrackBranchingAnalyzer, \
 from fiji.plugin.trackmate import Logger
 from fiji.plugin.trackmate.visualization.hyperstack import  HyperStackDisplayer
 # Export results
-from fiji.plugin.trackmate.action import ExportTracksToXML, ExportStatsToIJAction
+from fiji.plugin.trackmate.action import ExportTracksToXML
                                             
 
 def run_trackmate(imp, path, filename, params, batch_mode=False):
@@ -57,8 +57,7 @@ def run_trackmate(imp, path, filename, params, batch_mode=False):
     model.setLogger(Logger.IJ_LOGGER)
     
     # Create setting object from image
-    settings = Settings()
-    settings.setFrom(imp)
+    settings = Settings(imp)
     
     cal = imp.getCalibration()
     model.setPhysicalUnits("micron", "sec")
@@ -84,7 +83,7 @@ def run_trackmate(imp, path, filename, params, batch_mode=False):
     settings.addSpotFilter(filter_snr)
     
     # Compute spot features
-    settings.addSpotAnalyzerFactory(SpotIntensityAnalyzerFactory())
+    settings.addSpotAnalyzerFactory(SpotIntensityMultiCAnalyzerFactory())
     settings.addSpotAnalyzerFactory(SpotContrastAndSNRAnalyzerFactory())
     
     # Compute track features
