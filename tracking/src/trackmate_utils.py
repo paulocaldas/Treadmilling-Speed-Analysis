@@ -45,6 +45,9 @@ from fiji.plugin.trackmate.features.track import TrackBranchingAnalyzer, \
 # Display results
 from fiji.plugin.trackmate import Logger
 from fiji.plugin.trackmate.visualization.hyperstack import  HyperStackDisplayer
+from fiji.plugin.trackmate.gui.displaysettings import DisplaySettingsIO
+from fiji.plugin.trackmate.gui.displaysettings.DisplaySettings import TrackMateObject
+
 # Export results
 from fiji.plugin.trackmate.action import ExportTracksToXML
                                             
@@ -79,12 +82,18 @@ def run_trackmate(imp, path, filename, params, batch_mode=False):
     # Add spot filters
     filter_quality = FeatureFilter('QUALITY', params.quality, True)
     settings.addSpotFilter(filter_quality)
-    filter_snr = FeatureFilter('SNR', params.snr, True)
+    filter_snr = FeatureFilter('SNR_CH1', params.snr, True)
     settings.addSpotFilter(filter_snr)
     
     # Compute spot features
-    settings.addSpotAnalyzerFactory(SpotIntensityMultiCAnalyzerFactory())
-    settings.addSpotAnalyzerFactory(SpotContrastAndSNRAnalyzerFactory())
+    spotIntensityAnalyzer = SpotIntensityMultiCAnalyzerFactory()
+    spotIntensityAnalyzer.setNChannels(1)
+    settings.addSpotAnalyzerFactory(spotIntensityAnalyzer)
+    
+    snrAnalyzer = SpotContrastAndSNRAnalyzerFactory()
+    snrAnalyzer.setNChannels( 1 )
+    
+    settings.addSpotAnalyzerFactory(snrAnalyzer)
     
     # Compute track features
     settings.addTrackAnalyzer(TrackBranchingAnalyzer())
@@ -140,7 +149,12 @@ def run_trackmate(imp, path, filename, params, batch_mode=False):
 
     if not batch_mode:
         selectionModel = SelectionModel(model)
-        displayer = HyperStackDisplayer(model, selectionModel, imp)
+        
+        ds = DisplaySettingsIO.readUserDefault()
+#        ds.setTrackColorBy( TrackMateObject.TRACKS, 'TRACK_DURATION' )
+#        ds.setSpotColorBy( TrackMateObject.TRACKS, 'TRACK_DURATION' )
+        
+        displayer = HyperStackDisplayer(model, selectionModel, imp, ds)
         displayer.render()
         displayer.refresh()
         # Echo results with the logger we set at start:
