@@ -130,29 +130,34 @@ def single_track_analysis(table_tracks, frame_interval, clip = 0.5, plot_every =
         
         taus = taus * frame_interval # convert number of frames in seconds
         
-        # msds with at least 5 data points (frames) to make te fitting work
+        # msds with at least 5 data points (frames) to make tHe fitting work
         
-        if len(taus) > 5:
+        if len(taus) > 2:
             
             filtered_tracks += 1
-            #defines the % of the length of the track to fit the equation
             
+            #define the % of the length of the track to fit the equation
             clip = int(len(msd) * clip)
             
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore")
                 
-                (D, V), cov = curve_fit(parabola, taus[:clip], msd[:clip], p0 = (2,2))
+                (D, V), cov = curve_fit(parabola, taus[:clip], msd[:clip], p0 = (1,1))
 
-                if V < 0: continue
+                if V < 0: 
+                    continue
+                    
+                    print('negative velocity!')
+				
                 V = np.sqrt(V)
-            
-            t_values = np.linspace(0,taus[-1],300)
+                                
+            #t_values = np.linspace(0,taus[-1],300)
             
             if i % plot_every == 0: # plot only every nth curve to save ram memory and time
                 
-                ax[0].plot(taus,msd, '-o', markersize = 4, markeredgecolor = 'black', markeredgewidth = 0.4, 
-										alpha = 0.4, lw = 0.8, color = plt.cm.Greens(i*0.1))
+                ax[0].plot(taus, msd, '-o', markersize = 2, markeredgecolor = 'black', markeredgewidth = 0.2, 
+										alpha = 0.4, lw = 1., color = plt.cm.Greens(i*0.1 + 100))
+                
                 
 				# in case one wants to show the fits instead
 				#ax[0].plot(t_values, parabola(t_values, D,V), '-', lw = 0.8, color = plt.cm.Greens(i*0.1))
@@ -162,7 +167,8 @@ def single_track_analysis(table_tracks, frame_interval, clip = 0.5, plot_every =
             
             all_velocities.append(V * 1000) #save all velocities in nanometers
     
-    if filtered_tracks < 10: print('number of tracks with > 5 frames is too low or non-existent')
+    if filtered_tracks < 10: 
+        print('number of tracks with > 5 frames is too low or non-existent')
     
     # plot final histogram
     # all_velocities = [vel for vel in all_velocities if vel >= 1]
@@ -237,7 +243,7 @@ def msd_velocity_analysis(table_tracks, frame_interval, clip = 0.5, coords=['POS
     Y = msds_means[:clip]
     W = msds_std[:clip]
     
-    parameters, cov = curve_fit(parabola, T, Y, sigma = W, p0=(2,2))
+    parameters, cov = curve_fit(parabola, T, Y, sigma = W, p0=(1,1))
     (D,V) = parameters
     V = np.sqrt(V)
 
@@ -363,7 +369,7 @@ def analyze_tracks(filename,
                 pdf.savefig(bbox_inches="tight")
 
             if msd_single_track == True:
-                all_single_msd_vel, all_curves = single_track_analysis(track_table, frame_interval = frame_interval, clip = clip)
+                all_single_msd_vel, all_curves = single_track_analysis(track_table, frame_interval = frame_interval, clip = clip, plot_every = plot_every)
                 
                 pd.Series(all_single_msd_vel).to_excel(excel_sheet, sheet_name = 'msd_single_vel_hist', index=False, header = False)
                 all_curves.to_excel(excel_sheet, sheet_name = 'all_single_msd_curves', index=False, header = True)

@@ -34,7 +34,8 @@ def run_batch_processing(files_dir,
         print('File directory is empty!')
     
     else:
-    	for n_file, xml_file in tqdm(enumerate(files), desc = 'progress ...', total=len(files)):
+    	
+        for n_file, xml_file in tqdm(enumerate(files), desc = 'progress ...', total=len(files)):
             
             print('processing ' + os.path.basename(xml_file))
 			
