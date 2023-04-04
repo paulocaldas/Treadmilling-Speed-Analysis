@@ -24,8 +24,8 @@ from fiji.plugin.trackmate.io import TmXmlWriter
 from fiji.plugin.trackmate.util import TMUtils
 from fiji.plugin.trackmate import Settings, Model, SelectionModel, TrackMate
 from fiji.plugin.trackmate.detection import DetectorKeys
-from fiji.plugin.trackmate.tracking.sparselap import SparseLAPTrackerFactory
-from fiji.plugin.trackmate.tracking import LAPUtils
+from fiji.plugin.trackmate.tracking.jaqaman import SparseLAPTrackerFactory
+from fiji.plugin.trackmate.tracking.jaqaman import LAPUtils
 from fiji.plugin.trackmate.detection import DogDetectorFactory, LogDetectorFactory
 from fiji.plugin.trackmate.features import FeatureFilter, \
                                            FeatureAnalyzer, \
@@ -108,7 +108,7 @@ def run_trackmate(imp, path, filename, params, batch_mode=False):
     
     # Configure tracker
     settings.trackerFactory = SparseLAPTrackerFactory()
-    settings.trackerSettings = LAPUtils.getDefaultLAPSettingsMap()
+    settings.trackerSettings = settings.trackerFactory.getDefaultSettings()
     settings.trackerSettings['LINKING_MAX_DISTANCE']     = params.linking_max_distance
     settings.trackerSettings['GAP_CLOSING_MAX_DISTANCE'] = params.gap_closing_max_distance
     settings.trackerSettings['MAX_FRAME_GAP']            = params.max_frame_gap
